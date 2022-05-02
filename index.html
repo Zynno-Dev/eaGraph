@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="graphContainer">
+      <figure class="highcharts-figure">
+        <div id="container"></div>
+      </figure>
+      <figure class="highcharts-figure">
+        <div id="container2"></div>
+      </figure>
+    </div>
+  </body>
+  <script>
+    let dataSet = [2, 40, 100, 200, 300, 400, 500, 600, 700];
+    Highcharts.chart("container", {
+      chart: {
+        type: "variablepie",
+      },
+      title: {
+        text: "Oficiales", //Titulo
+      },
+      tooltip: {
+        headerFormat: "",
+        pointFormat:
+          '<span style="color:{point.color}">\u25CF</span> <b> {point.name }</b><br/>' + //Nombre del item
+          "Cantidad: <b>{point.y}</b><br/>",
+      },
+      series: [
+        {
+          minPointSize: 80, //Tamaño minimo de los puntos
+          innerSize: "50%", //Tamaño de los puntos
+          zMin: 0,
+          name: "Grados",
+          data: [
+            {
+              name: "TG",
+              y: dataSet[0],
+            },
+            {
+              name: "GB",
+              y: dataSet[1],
+            },
+            {
+              name: "GD",
+              y: dataSet[2],
+            },
+            {
+              name: "TC",
+              y: dataSet[3],
+            },
+            {
+              name: "MY",
+              y: dataSet[4],
+            },
+            {
+              name: "CT",
+              y: dataSet[5],
+            },
+            {
+              name: "TP",
+              y: dataSet[6],
+            },
+            {
+              name: "TT",
+              y: dataSet[7],
+            },
+            {
+              name: "ST",
+              y: dataSet[8],
+            },
+          ],
+        },
+      ],
+    });
+
+    Highcharts.chart("container2", {
+      //Targeting container
+      chart: {
+        type: "variablepie",
+      },
+      title: {
+        text: "Sub-Oficiales", //Titulo
+      },
+      tooltip: {
+        headerFormat: "",
+        pointFormat:
+          '<span style="color:{point.color}">\u25CF</span> <b> {point.name }</b><br/>' + //Nombre del item
+          "Cantidad: <b>{point.y}</b><br/>",
+      },
+      series: [
+        {
+          minPointSize: 80, //Tamaño minimo de los puntos
+          innerSize: "50%", //Tamaño de los puntos
+          zMin: 0,
+          name: "Grados",
+          data: [
+            {
+              name: "SM",
+              y: dataSet[2],
+            },
+            {
+              name: "SP",
+              y: dataSet[3],
+            },
+            {
+              name: "SA",
+              y: dataSet[4],
+            },
+            {
+              name: "SI",
+              y: dataSet[5],
+            },
+            {
+              name: "SG",
+              y: dataSet[6],
+            },
+            {
+              name: "CI",
+              y: dataSet[7],
+            },
+            {
+              name: "CB",
+              y: dataSet[8],
+            },
+          ],
+        },
+      ],
+    });
+
+    $(".highcharts-credits").hide();
+    $(".highcharts-button-box").hide();
+    $(".highcharts-no-tooltip").hide();
+  </script>
+</html>
